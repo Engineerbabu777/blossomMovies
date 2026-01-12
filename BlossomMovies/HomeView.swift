@@ -9,9 +9,34 @@ import SwiftUI
 
 struct HomeView: View {
     
-    var heroTestTitle = ""
+    var heroTestTitle = Constants.testTitleURL
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            AsyncImage(url: URL(string: heroTestTitle)){ image in
+                image
+                    .resizable()
+                    .scaledToFit()
+            }placeholder:{
+                ProgressView()
+            }
+            
+            HStack{
+                Button{
+                    
+                } label:{
+                    Text(Constants.playString)
+                        .ghostButton()
+                }
+                
+                Button{
+                    
+                } label:{
+                    Text(Constants.downloadString)
+                        .ghostButton()
+                    
+                }
+            }
+        }
     }
 }
 
